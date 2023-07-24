@@ -24,6 +24,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
+    
 
     
   end
@@ -32,7 +33,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
 
     if @prototype.update(prototype_params)
-      redirect_to root_path
+      redirect_to prototype_path(@prototype)
     else
       render :edit, status: :unprocessable_entity
     end
